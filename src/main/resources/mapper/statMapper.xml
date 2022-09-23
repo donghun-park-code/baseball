@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.domain.stat.StatDao">
+	<select id="findAll"
+		resultType="com.example.demo.web.dto.response.StatRespDto">
+		SELECT POSITION,
+		MAX(if(teamId=1,NAME,""))"LG",
+		MAX(if(teamId=2,name,""))"키움",
+		MAX(if(teamId=3,name,""))"롯데"
+		FROM player
+		GROUP BY position
+	</select>
+</mapper>
